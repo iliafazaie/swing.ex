@@ -7,9 +7,6 @@ import java.io.IOException;
 public class Part4 {
 
     public static void main(String[] args) {
-    	
-        // Start background music
-        playMusic("src\\Music\\Reyjuliand - The Crow King (2022) SONGSARA.NET (online-audio-converter.com).wav");
 
         // Create Frame
         JFrame frame = new JFrame("User Registration");
@@ -138,18 +135,5 @@ public class Part4 {
         frame.add(panel);
         frame.setLocationRelativeTo(null); // Center screen
         frame.setVisible(true);
-    }
-
-    // Method to play background music
-    public static void playMusic(String filepath) {
-        try {
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File(filepath));
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioStream);
-            clip.loop(Clip.LOOP_CONTINUOUSLY); // Loop forever
-            clip.start();
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            System.out.println("Could not play music: " + e.getMessage());
-        }
     }
 }
